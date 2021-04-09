@@ -1,25 +1,15 @@
-package cmd
-
-import (
-	"fmt"
-	"net/http"
-	"os"
-)
-
 package main
 
 import (
-"fmt"
-"net/http"
-"os"
+	"net/http"
+	"os"
 )
 
 func main() {
 
 	port := os.Getenv("PORT")
 
-	http.HandleFunc("/hello", func(w http.ResponseWriter, request *http.Request) {
-		fmt.Fprintf(w, "World")
+	http.HandleFunc("/health", func(w http.ResponseWriter, request *http.Request) {
 	})
 
 	http.ListenAndServe(":"+port, nil)
